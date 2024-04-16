@@ -1,0 +1,30 @@
+<h1>Danh sách điện thoại</h1>
+<button class="btn btn-success" ng-click="onAdd()">Thêm điện thoại</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Tên</th>
+      <th scope="col">Hãng</th>
+      <th scope="col">Giá</th>
+      <th scope="col">Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="phone in phones">
+      <th scope="row">{{phone.id}}</th>
+      <td>{{phone.ten}}</td>
+      <td>{{phone.hang}}</td>
+      <td>{{phone.gia}}</td>
+      <td>
+        <button class="btn btn-primary" ng-click="onDetail(phone.id)">
+          Chi tiết
+        </button>
+        <button class="btn btn-warning" ng-click="onEdit(phone.id)">Sửa</button>
+        <button class="btn btn-danger" ng-click="onDelete(phone.id)">
+          Xóa
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

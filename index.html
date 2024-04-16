@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <!-- Nhúng boostrap -->
+    <link rel="stylesheet" href="./libs/bootstrap.css" />
+    <script src="./libs/bootstrap.js"></script>
+    <!-- Nhúng icon -->
+    <script src="./libs/font-fontawesome-ae333ffef2.js"></script>
+    <!-- Nhúng angular js -->
+    <script src="./libs/angular.js"></script>
+    <!-- Nhúng thư viện angular-route. Lưu ý: khai báo angular-route sau angular.js -->
+    <script src="./libs/angular-route.js"></script>
+    <script src="controllers/ListController.js"></script>
+    <script src="controllers/AddController.js"></script>
+    <script src="controllers/DetailController.js"></script>
+    <script src="controllers/EditController.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div class="container">
+      <div ng-view></div>
+    </div>
+
+    <script>
+      angular.module("myApp", ["ngRoute"]).config(function ($routeProvider) {
+        $routeProvider
+          .when("/list-phone", {
+            templateUrl: "/views/list.html",
+            controller: ListController,
+          })
+          .when("/phone/add", {
+            templateUrl: "/views/add.html",
+            controller: AddController,
+          })
+          .when("/detail/phone/:id", {
+            templateUrl: "/views/detail.html",
+            controller: DetailController,
+          })
+          .when("/edit/phone/:id", {
+            templateUrl: "/views/edit.html",
+            controller: EditController,
+          });
+      });
+    </script>
+  </body>
+</html>
